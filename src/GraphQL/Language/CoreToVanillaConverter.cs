@@ -1,7 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using GraphQL.Language.AST;
+using GraphQLParser;
+using GraphQLParser.AST;
 
 namespace GraphQL.Language
 {
@@ -69,7 +70,7 @@ namespace GraphQL.Language
         public InlineFragment InlineFragment(GraphQLInlineFragment source)
         {
             var frag = new InlineFragment().WithLocation(source, _body);
-            frag.Type = NamedType(source.TypeCondition);
+            frag.Type = source.TypeCondition != null ? NamedType(source.TypeCondition) : null;
             frag.Directives = Directives(source.Directives);
             frag.SelectionSet = SelectionSet(source.SelectionSet);
             return frag;

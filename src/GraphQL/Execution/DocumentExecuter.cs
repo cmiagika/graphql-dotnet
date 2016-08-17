@@ -7,10 +7,10 @@ using System.Threading;
 using System.Threading.Tasks;
 using GraphQL.Execution;
 using GraphQL.Introspection;
-using GraphQL.Language;
 using GraphQL.Language.AST;
 using GraphQL.Types;
 using GraphQL.Validation;
+using GraphQLParser.AST;
 using ExecutionContext = GraphQL.Execution.ExecutionContext;
 
 namespace GraphQL
